@@ -2,21 +2,20 @@
 
 FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
 WORKDIR /app
-EXPOSE 80
 EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["notify/notify.csproj", "notify/"]
-RUN dotnet restore "notify/notify.csproj"
+COPY ["notifier/notifier.csproj", "notifier/"]
+RUN dotnet restore "notifier/notifier.csproj"
 COPY . .
-WORKDIR "/src/notify"
-RUN dotnet build "notify.csproj" -c Release -o /app/build
+WORKDIR "/src/notifier"
+RUN dotnet build "notifier.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "notify.csproj" -c Release -o /app/publish
+RUN dotnet publish "notifier.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "notify.dll"]
+ENTRYPOINT ["dotnet", "notifier.dll"]

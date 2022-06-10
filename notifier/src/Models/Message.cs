@@ -1,4 +1,4 @@
-﻿namespace notify.Models
+﻿namespace notifier.Models
 {
     #nullable enable
 

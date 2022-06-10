@@ -22,11 +22,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="EF\PostgreSQL\" />
+    <None Include="nlog.config" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="nlog.config" />
+    <Folder Include="EF\" />
   </ItemGroup>
 
 </Project>
