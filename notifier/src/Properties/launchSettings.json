@@ -22,8 +22,7 @@
       "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development",
-        " NPG_CS": "\"Host=localhost; DataBase=auth; Username=postgres; Password=7aTd_0!32Qn!\""
+        "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "applicationUrl": "https://localhost:8081;http://localhost:8080;https://localhost:7071;http://localhost:7070",
       "dotnetRunMessages": "true"
