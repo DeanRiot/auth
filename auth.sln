@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "auth", "auth\src\auth.cspro
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "auth_tests", "auth\tests\auth_tests\auth_tests.csproj", "{F00FFF68-7628-433C-BD31-A9B859135479}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "notify", "notify\src\notify.csproj", "{53C6F8FB-A1EA-4693-9088-D38BBEC0BDD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "notifier", "notifier\src\notifier.csproj", "{53C6F8FB-A1EA-4693-9088-D38BBEC0BDD5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "notify_tests", "notify\tests\notify_tests.csproj", "{BAB3F811-DC5E-4B84-A09B-3D0332099EC7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "notify_tests", "notifier\tests\notify_tests.csproj", "{BAB3F811-DC5E-4B84-A09B-3D0332099EC7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
