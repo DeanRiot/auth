@@ -1,6 +1,5 @@
 ﻿namespace notifier.Models
 {
-    #nullable enable
     public class Method
     {
         public string type { get; set; }
