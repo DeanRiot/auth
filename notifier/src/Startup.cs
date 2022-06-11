@@ -27,9 +27,7 @@ namespace notifier
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "notifier", Version = "v1" });
             });
             var cs = Environment.GetEnvironmentVariable("NPG_CS");
-            services.AddDbContext<NotifyContext>(options =>
-                                                 options.UseNpgsql(cs
-                                                     ));
+            services.AddDbContext<NotifyContext>(options => options.UseNpgsql(cs));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
