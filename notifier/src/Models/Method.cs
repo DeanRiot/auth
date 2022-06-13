@@ -2,8 +2,7 @@
 {
     public class Method
     {
-        public string type { get; set; }
-        public string data { get; set; }
+        public string data { get; set; } = null;
         public bool enabled { get; set; } = false;
     }
 }

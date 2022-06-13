@@ -5,9 +5,9 @@ namespace notifier.Facade
 {
     public interface IMethodsFacade
     {
-        void Add(string user, Method method);
-        void Update(string user, Method method);
-        void Delete(string user, Method method);
-        List<object> Read(string user, Method method);
+        void Add(string user, TypedMethod method);
+        void Update(string user, UpdatableEntity info);
+        void Delete(string user, TypedMethod method);
+        Dictionary<string, List<Method>> Read(string user, string type = null);
     }
 }

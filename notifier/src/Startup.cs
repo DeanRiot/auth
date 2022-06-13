@@ -6,6 +6,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using notifier.EF.Entity;
+using notifier.Facade;
+using notifier.Facade.Methods;
 using System;
 
 namespace notifier
@@ -27,6 +29,7 @@ namespace notifier
             });
             var cs = Environment.GetEnvironmentVariable("NPG_CS");
             services.AddDbContext<NotifyContext>(options => options.UseNpgsql(cs));
+            services.AddScoped<IMethodsFacade, MethodsControllerFacade>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

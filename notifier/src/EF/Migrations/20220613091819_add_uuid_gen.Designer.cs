@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using notifier.EF.Entity;
@@ -9,9 +10,10 @@ using notifier.EF.Entity;
 namespace notifier.EF.Migrations
 {
     [DbContext(typeof(NotifyContext))]
-    partial class NotifyContextModelSnapshot : ModelSnapshot
+    [Migration("20220613091819_add_uuid_gen")]
+    partial class add_uuid_gen
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -45,42 +47,38 @@ namespace notifier.EF.Migrations
 
             modelBuilder.Entity("notifier.EF.Entity.MAIL", b =>
                 {
-                    b.Property<Guid>("mail_id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid")
-                        .HasDefaultValueSql("gen_random_uuid()");
-
                     b.Property<bool>("enabled")
                         .HasColumnType("boolean");
 
                     b.Property<string>("mail")
                         .HasColumnType("text");
 
+                    b.Property<Guid>("mail_id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid")
+                        .HasDefaultValueSql("gen_random_uuid()");
+
                     b.Property<Guid>("user_id")
                         .HasColumnType("uuid");
-
-                    b.HasKey("mail_id");
 
                     b.ToTable("MAIL");
                 });
 
             modelBuilder.Entity("notifier.EF.Entity.SMS", b =>
                 {
-                    b.Property<Guid>("sms_id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid")
-                        .HasDefaultValueSql("gen_random_uuid()");
-
                     b.Property<bool>("enabled")
                         .HasColumnType("boolean");
 
                     b.Property<string>("phone")
                         .HasColumnType("text");
 
+                    b.Property<Guid>("sms_id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid")
+                        .HasDefaultValueSql("gen_random_uuid()");
+
                     b.Property<Guid>("user_id")
                         .HasColumnType("uuid");
-
-                    b.HasKey("sms_id");
 
                     b.ToTable("SMS");
                 });
