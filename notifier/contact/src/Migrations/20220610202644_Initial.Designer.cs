@@ -5,15 +5,15 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using notifier.EF.Entity;
+using contacts.Models.EF;
 
-namespace notifier.EF.Migrations
+namespace contacts.Migrations
 {
     [DbContext(typeof(NotifyContext))]
     [Migration("20220610202644_Initial")]
     partial class Initial
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+       /*protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,7 +21,7 @@ namespace notifier.EF.Migrations
                 .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-            modelBuilder.Entity("notifier.EF.Entity.MAIL", b =>
+            modelBuilder.Entity("contacts.Models.EF.MAIL", b =>
                 {
                     b.Property<bool>("enabled")
                         .HasColumnType("boolean");
@@ -35,7 +35,7 @@ namespace notifier.EF.Migrations
                     b.ToTable("MAIL");
                 });
 
-            modelBuilder.Entity("notifier.EF.Entity.SMS", b =>
+            modelBuilder.Entity("contacts.Models.EF.SMS", b =>
                 {
                     b.Property<bool>("enabled")
                         .HasColumnType("boolean");
@@ -49,6 +49,6 @@ namespace notifier.EF.Migrations
                     b.ToTable("SMS");
                 });
 #pragma warning restore 612, 618
-        }
+        }*/
     }
 }

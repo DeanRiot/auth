@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace notifier.EF.Entity
+namespace contacts.Models.EF
 {
     public class NotifyContext:DbContext
     {

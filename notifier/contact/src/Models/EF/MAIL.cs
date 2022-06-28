@@ -2,7 +2,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace notifier.EF.Entity
+namespace contacts.Models.EF
 {
     public class MAIL
     {

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using notifier.EF.Entity;
+using contacts.Models.EF;
 
 namespace notifier.EF.Migrations
 {
@@ -19,7 +19,7 @@ namespace notifier.EF.Migrations
                 .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-            modelBuilder.Entity("notifier.EF.Entity.Communication", b =>
+            modelBuilder.Entity("contacts.Models.EF.Communication", b =>
                 {
                     b.Property<Guid>("id")
                         .ValueGeneratedOnAdd()
@@ -43,7 +43,7 @@ namespace notifier.EF.Migrations
                     b.ToTable("Communication");
                 });
 
-            modelBuilder.Entity("notifier.EF.Entity.MAIL", b =>
+            modelBuilder.Entity("contacts.Models.EF.MAIL", b =>
                 {
                     b.Property<Guid>("mail_id")
                         .ValueGeneratedOnAdd()
@@ -64,7 +64,7 @@ namespace notifier.EF.Migrations
                     b.ToTable("MAIL");
                 });
 
-            modelBuilder.Entity("notifier.EF.Entity.SMS", b =>
+            modelBuilder.Entity("contacts.Models.EF.SMS", b =>
                 {
                     b.Property<Guid>("sms_id")
                         .ValueGeneratedOnAdd()
