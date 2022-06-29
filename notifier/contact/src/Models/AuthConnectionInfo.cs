@@ -1,13 +1,13 @@
 ﻿namespace contacts.Models
 {
-    public struct AuthConnectionInfo
+    public class AuthConnectionInfo:IAuthInfo
     {
-        public AuthConnectionInfo(string address, string? port=null)
+        public AuthConnectionInfo()
         {
-            this.address = address;
-            this.port = port;
+            this.address = Environment.GetEnvironmentVariable("AUTH_ADDRESS");
+            this.port = Environment.GetEnvironmentVariable("AUTH_PORT");
         }
-        public string address { get; set; }
+        public string? address { get; set; }
         public string? port { get; set; }
     }
 }

@@ -6,7 +6,7 @@ namespace contacts.ControllersFacades
 {
     public class EmailFacade : BaseControllerFacade
     {
-        public EmailFacade(NotifyContext context, AuthConnectionInfo auth_service_address)
+        public EmailFacade(NotifyContext context, IAuthInfo auth_service_address)
                                       : base(context, auth_service_address) { }
 
         public override async Task Delete(Contact contact, string user_token)

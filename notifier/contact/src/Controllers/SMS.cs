@@ -14,7 +14,7 @@ namespace contacts.Controllers
         private readonly ILogger<SMS> _logger;
 
         BaseControllerFacade _facade;
-        public SMS(ILogger<SMS> logger,NotifyContext context, AuthConnectionInfo connection)
+        public SMS(ILogger<SMS> logger, NotifyContext context, IAuthInfo connection)
         {
             _logger = logger;
             _facade = new SmsFacade(context,connection); 

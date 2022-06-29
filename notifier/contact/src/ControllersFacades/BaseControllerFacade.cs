@@ -9,8 +9,8 @@ namespace contacts.ControllersFacades
     public abstract class BaseControllerFacade
     {
         protected NotifyContext _context;
-        protected AuthConnectionInfo _auth_service;
-        public BaseControllerFacade(NotifyContext provider,  AuthConnectionInfo auth_service) 
+        protected IAuthInfo _auth_service;
+        public BaseControllerFacade(NotifyContext provider,  IAuthInfo auth_service) 
         {
             _context = provider;
             _auth_service = auth_service;
@@ -30,6 +30,7 @@ namespace contacts.ControllersFacades
             string uri = CreateUri(user_token);
             HttpWebRequest request = ConfigureReq(uri);
             string response_data = StartGetReq(request);
+            if (response_data == "") return Guid.Empty;
             return findUserID(response_data);
         }
 
@@ -53,10 +54,17 @@ namespace contacts.ControllersFacades
         protected string StartGetReq(HttpWebRequest request)
         {
             string response_data;
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-            using (Stream stream = response.GetResponseStream())
-            using (StreamReader reader = new StreamReader(stream)) 
-                  response_data = reader.ReadToEnd();
+            try
+            {
+                using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+                using (Stream stream = response.GetResponseStream())
+                using (StreamReader reader = new StreamReader(stream))
+                    response_data = reader.ReadToEnd();
+            }
+            catch
+            {
+                response_data = "";
+            }
             
             return response_data;
         }

@@ -11,8 +11,8 @@ namespace contacts.Controllers
     public class Email : ControllerBase
     {
         private readonly ILogger<Email> _logger;
-        EmailFacade _facade;
-        public Email(ILogger<Email> logger, NotifyContext context, AuthConnectionInfo connection)
+        BaseControllerFacade _facade;
+        public Email(ILogger<Email> logger, NotifyContext context, IAuthInfo connection)
         {
             _logger = logger;
             _facade = new EmailFacade(context, connection);
