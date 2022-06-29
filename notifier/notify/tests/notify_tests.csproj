@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\auth.csproj" />
+    <ProjectReference Include="..\src\notify.csproj" />
   </ItemGroup>
 
 </Project>
