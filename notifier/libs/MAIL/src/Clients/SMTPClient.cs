@@ -1,15 +1,16 @@
 ﻿using Mail.ConfigEnums;
+using Mail.Data;
 using System.Net;
 using System.Net.Mail;
 
-namespace Mail
+namespace Mail.Clients
 {
-    public class Client
+    internal class SMTPClient : IMailClient
     {
         SmtpClient _client;
         string _from;
 
-        public Client(Credentials credentials, Service service)
+        internal SMTPClient(Credentials credentials, Service service)
         {
             switch (service)
             {

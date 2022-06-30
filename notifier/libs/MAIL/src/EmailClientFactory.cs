@@ -1,4 +1,6 @@
-﻿using Mail.ConfigEnums;
+﻿using Mail.Clients;
+using Mail.ConfigEnums;
+using Mail.Data;
 
 namespace Mail
 {
@@ -11,7 +13,7 @@ namespace Mail
             _credentials = credentials;
             _service = service;
         }
-        public Client Create() => new Client(_credentials, _service);
+        public IMailClient Create() => new SMTPClient(_credentials, _service);
 
     }
 }
