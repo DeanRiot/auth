@@ -1,9 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+﻿using notify.Models.EF;
+using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace notify.Controllers
 {
@@ -11,6 +8,8 @@ namespace notify.Controllers
     [Route("[controller]")]
     public class Notify : ControllerBase
     {
+        public Notify(NotifyContext context) { }
+
         [HttpPost]
         public void Post(Guid user_id, string MessageType)
         {
