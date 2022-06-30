@@ -7,7 +7,7 @@ namespace SMS
     {
         ISmsSender _sender;
         /// <summary>
-        /// ISmsSender MUST be Singletone
+        /// ISmsSender instance MUST be Singletone
         /// </summary>
         /// <param name="sender"></param>
         public SmsNotifier(ISmsSender sender) => _sender = sender;
