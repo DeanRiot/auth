@@ -1,4 +1,4 @@
-﻿namespace Mail
+﻿namespace Mail.Data
 {
     public struct Credentials
     {
@@ -8,6 +8,6 @@
             this.Password = Password;
         }
         public string Login { get; set; }
-        public string Password { get; set; }  
+        public string Password { get; set; }
     }
 }

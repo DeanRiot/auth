@@ -1,6 +1,6 @@
-﻿namespace Sms.SmsSenders
+﻿namespace Mail.Clients
 {
-    public interface ISmsSender
+    public interface IMailClient
     {
         public void Send(string to, string message);
         public void SendAsync(string to, string message);
