@@ -1,45 +1,36 @@
 ﻿using System;
-using System.IO.Ports;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace SMS
+namespace Sms.Helpers
 {
-    public class SmsProvider
+    internal class SerialDataPreparer
     {
-        SerialPort _serial;
-        public SmsProvider(string port)=>
-               _serial = new SerialPort(port,9600,Parity.None,8,StopBits.One);
-          
-        
-        public void Send(string to, string message)
+        public string PrepareData(string phone, string message)
         {
-            _serial.Write("ATZ\r");
-            _serial.Write("AT+CMGF=0\r");
-            string data = PrepareData(to, message);
-            _serial.Write(data);
-        }
-
-        private string PrepareData(string phone, string message)
-        {
-            StringBuilder pdu = new StringBuilder("0001000B91");//cfg bytes
+            StringBuilder pdu = new StringBuilder();
+            pdu.Append("ATZ\r");
+            pdu.Append("AT+CMGF=0\r");
+            pdu.Append("0001000B91");//cfg bytes
             pdu.Append(PreparePhone(phone));
             pdu.Append(PrepareMessage(message));
             return pdu.ToString();
         }
         private string PreparePhone(string phone)
         {
-           var d =  phone.ToList();
+            var d = phone.ToList();
             if (d.Contains('+')) d.Remove('+');
             if (d.Count() % 2 != 0) d.Add('F');
-            for(int i = 0; i < d.Count(); i+=2)
+            for (int i = 0; i < d.Count(); i += 2)
             {
                 var temp = d[i];
                 d[i] = d[i + 1];
                 d[i + 1] = temp;
             }
             var result = new string(d.ToArray());
-           return result;
+            return result;
         }
 
         private string PrepareMessage(string message)
@@ -56,6 +47,5 @@ namespace SMS
             utf8_String = Encoding.UTF8.GetString(bytes);
             return Encoding.UTF8.GetBytes(utf8_String);
         }
-
     }
 }
