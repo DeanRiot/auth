@@ -11,15 +11,5 @@ namespace contacts.Models.DTO
         public string contact { get; set; }
         public IMessageType message { get; set; }
         public string status { get; set; }
-        public void SaveToDB(NotifyContext context)
-        {
-            context.Communication.Add(new Communication()
-            {
-                user = userId,
-                method = method,
-                status = status,
-                timestamp = DateTime.Now,
-            });
-        }
     }
 }

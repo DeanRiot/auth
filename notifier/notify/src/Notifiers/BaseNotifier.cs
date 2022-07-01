@@ -10,11 +10,11 @@ namespace notify.Notifiers
         public string method { get; set; }
         public string contact { get; set; }
         public IMessageType message { get; set; }
-        public string status { get; set; }
+        protected string status { get; set; }
 
         NotifyContext _context;
         public BaseNotifier(NotifyContext context) => _context = context;
-        public void SaveToDB()
+        protected void SaveToDB()
         {
             _context.Communication.Add(new Communication()
             {
@@ -24,5 +24,6 @@ namespace notify.Notifiers
                 timestamp = DateTime.Now,
             });
         }
+        public abstract void SendAndSaveToDb(string contact, Guid userId, IMessageType message);
     }
 }

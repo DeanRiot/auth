@@ -15,7 +15,7 @@ namespace notify.Notifiers
             this.status = "FAIL";
         }
 
-        public void SendAndSaveToDb(string contact, Guid userId, IMessageType message)
+        public override void SendAndSaveToDb(string contact, Guid userId, IMessageType message)
         {
             this.contact = contact;
             this.userId = userId;
