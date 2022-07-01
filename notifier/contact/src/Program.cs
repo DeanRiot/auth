@@ -1,7 +1,6 @@
 using contacts.Models;
 using contacts.Models.EF;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -38,7 +37,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<NotifyContext>(options =>
                  options.UseNpgsql(sql_cs));
 
-builder.Services.AddScoped<IAuthInfo,AuthConnectionInfo>();
+builder.Services.AddScoped<IAuthInfo, AuthConnectionInfo>();
 builder.Services.AddScoped<NotifyContext>();
 
 var app = builder.Build();

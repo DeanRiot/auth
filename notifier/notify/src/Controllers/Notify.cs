@@ -1,5 +1,5 @@
-﻿using notify.Models.EF;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using notify.Models.EF;
 using System;
 
 namespace notify.Controllers

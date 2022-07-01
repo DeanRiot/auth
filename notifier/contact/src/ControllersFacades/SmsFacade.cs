@@ -6,8 +6,8 @@ namespace contacts.ControllersFacades
 {
     public class SmsFacade : BaseControllerFacade
     {
-        public SmsFacade(NotifyContext context, IAuthInfo auth_service_address) 
-                                    : base(context, auth_service_address){}
+        public SmsFacade(NotifyContext context, IAuthInfo auth_service_address)
+                                    : base(context, auth_service_address) { }
 
         public async override Task Delete(Contact contact, string user_token)
         {
@@ -22,7 +22,7 @@ namespace contacts.ControllersFacades
                 });
                 await _context.SaveChangesAsync();
             }
-            else return;  
+            else return;
         }
 
         public override List<Contact> Get(string user_token)
@@ -41,13 +41,13 @@ namespace contacts.ControllersFacades
                 contactId = e.sms_id,
                 contact = e.phone,
                 active = e.enabled
-            }) ;
+            });
             return contacts;
         }
 
-        private List<SMS> GetEntriesList(Guid user)=>
-                (List<SMS>)_context.SMS.Where(s=>s.user_id.Equals(user));
-        
+        private List<SMS> GetEntriesList(Guid user) =>
+                (List<SMS>)_context.SMS.Where(s => s.user_id.Equals(user));
+
         public async override Task Insert(Contact contact, string user_token)
         {
             var user_id = GetUserId(user_token);

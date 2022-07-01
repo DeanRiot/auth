@@ -1,8 +1,7 @@
-﻿using contacts.Models.DTO;
-using contacts.Models;
+﻿using contacts.Models;
+using contacts.Models.DTO;
 using contacts.Models.EF;
 using System.Net;
-using System.Text;
 
 namespace contacts.ControllersFacades
 {
@@ -10,11 +9,11 @@ namespace contacts.ControllersFacades
     {
         protected NotifyContext _context;
         protected IAuthInfo _auth_service;
-        public BaseControllerFacade(NotifyContext provider,  IAuthInfo auth_service) 
+        public BaseControllerFacade(NotifyContext provider, IAuthInfo auth_service)
         {
             _context = provider;
             _auth_service = auth_service;
-        } 
+        }
         public abstract List<Contact> Get(string user_token);
         public abstract Task Update(Contact contact, string user_token);
         public abstract Task Insert(Contact contact, string user_token);
@@ -40,7 +39,7 @@ namespace contacts.ControllersFacades
             uri.Scheme = "https";
             uri.Host = _auth_service.address;
             if (int.TryParse(_auth_service.port, out int port)) uri.Port = port;
-            uri.Query=$"?token={user_token}";
+            uri.Query = $"?token={user_token}";
             return uri.ToString();
         }
 
@@ -65,7 +64,7 @@ namespace contacts.ControllersFacades
             {
                 response_data = "";
             }
-            
+
             return response_data;
         }
         private Guid findUserID(string response_data)

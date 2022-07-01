@@ -4,6 +4,7 @@
     {
         Google,
         Yandex,
-        MailRu
+        MailRu,
+        Undefined
     }
 }

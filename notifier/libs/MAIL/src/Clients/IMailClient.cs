@@ -2,7 +2,7 @@
 {
     public interface IMailClient
     {
-        public void Send(string to, string message);
-        public void SendAsync(string to, string message);
+        public int Send(string to, string message);
+        public int SendAsync(string to, string message);
     }
 }

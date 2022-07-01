@@ -1,4 +1,3 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
 using SMS;
 
@@ -12,7 +11,7 @@ namespace sms_tests
         {
             SmsNotifier provider = new SmsNotifier("COM 1");
             provider.Send("79013216565", "Hello World");
-            
+
         }
     }
 }

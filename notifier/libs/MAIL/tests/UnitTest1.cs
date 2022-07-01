@@ -1,6 +1,3 @@
-using Mail;
-using Mail.ConfigEnums;
-using Moq;
 using NUnit.Framework;
 
 namespace mail_tests

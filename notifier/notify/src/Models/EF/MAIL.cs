@@ -1,8 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace contacts.Models.EF
+namespace notify.Models.EF
 {
     public class MAIL
     {

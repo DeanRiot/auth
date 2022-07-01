@@ -39,7 +39,7 @@ namespace contacts.ControllersFacades
                 contact = e.mail,
                 active = e.enabled,
                 contactId = e.mail_id
-            }) ;
+            });
             return contacts;
         }
 
@@ -53,9 +53,10 @@ namespace contacts.ControllersFacades
             else return;
         }
 
-        private async Task InsertMail(Contact contact,Guid user_id)
+        private async Task InsertMail(Contact contact, Guid user_id)
         {
-            _context.MAIL.Add(new MAIL() { 
+            _context.MAIL.Add(new MAIL()
+            {
                 user_id = user_id,
                 mail = contact.contact,
                 enabled = contact.active

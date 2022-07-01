@@ -1,11 +1,6 @@
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace notify
 {
@@ -23,11 +18,19 @@ namespace notify
             }
 
             string sql_cs = Environment.GetEnvironmentVariable(sql_provider_name);
-            
+
             if (sql_cs is null)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("DB Connection string enviroment var is misconfigured");
+                Console.ForegroundColor = ConsoleColor.White;
+                return;
+            }
+
+            if (Environment.GetEnvironmentVariable("MAIL_SERVICE") is null)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("MAIL_SERVICE enviroment var is misconfigured");
                 Console.ForegroundColor = ConsoleColor.White;
                 return;
             }

@@ -1,13 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace contacts.Models.EF
+namespace notify.Models.EF
 {
-    public class NotifyContext:DbContext
+    public class NotifyContext : DbContext
     {
         private NotifyContext() : base() { }
-        public NotifyContext(DbContextOptions options):base(options) { }
+        public NotifyContext(DbContextOptions options) : base(options) { }
         public virtual DbSet<SMS> SMS { get; set; }
-        public virtual DbSet<MAIL> MAIL{ get; set; }
+        public virtual DbSet<MAIL> MAIL { get; set; }
         public virtual DbSet<Communication> Communication { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

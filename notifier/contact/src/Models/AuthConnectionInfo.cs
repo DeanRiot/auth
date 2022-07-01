@@ -1,6 +1,6 @@
 ﻿namespace contacts.Models
 {
-    public class AuthConnectionInfo:IAuthInfo
+    public class AuthConnectionInfo : IAuthInfo
     {
         public AuthConnectionInfo()
         {

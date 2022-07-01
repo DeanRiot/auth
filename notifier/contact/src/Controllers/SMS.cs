@@ -3,7 +3,6 @@ using contacts.Models;
 using contacts.Models.DTO;
 using contacts.Models.EF;
 using Microsoft.AspNetCore.Mvc;
-using System;
 
 namespace contacts.Controllers
 {
@@ -17,9 +16,9 @@ namespace contacts.Controllers
         public SMS(ILogger<SMS> logger, NotifyContext context, IAuthInfo connection)
         {
             _logger = logger;
-            _facade = new SmsFacade(context,connection); 
-        } 
-        
+            _facade = new SmsFacade(context, connection);
+        }
+
 
         [HttpGet]
         public void Get()

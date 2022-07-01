@@ -1,5 +1,4 @@
 ﻿using NUnit.Framework;
-using Sms.Helpers;
 
 namespace sms_tests
 {
@@ -23,8 +22,8 @@ namespace sms_tests
         {
             SerialDataPreparer _serialDataPreparer = new SerialDataPreparer();
             string data = _serialDataPreparer.PrepareData(number, "");
-            string phone = data.Substring(24,12);
-            Assert.AreEqual(want, phone,$"{phone} not eq with {want}");
+            string phone = data.Substring(24, 12);
+            Assert.AreEqual(want, phone, $"{phone} not eq with {want}");
         }
     }
 }

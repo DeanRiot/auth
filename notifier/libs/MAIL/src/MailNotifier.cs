@@ -2,7 +2,7 @@
 
 namespace Mail
 {
-    internal class MailNotifier
+    public class MailNotifier
     {
         IMailClient _sender;
         /// <summary>
@@ -16,7 +16,7 @@ namespace Mail
         /// <param name="to">format test@mail.xxx</param>
         /// <param name="message">message text</param>
         /// <note>Use QUEUE for many send</note>
-        public void Send(string to, string message) => _sender.Send(to, message);
+        public int Send(string to, string message) => _sender.Send(to, message);
 
         /// <summary>
         // Send Message to abonent
@@ -24,6 +24,6 @@ namespace Mail
         /// <param name="to">format test@mail.xxx</param>
         /// <param name="message">message text</param>
         /// <note>Use QUEUE for many send</note>
-        public void SendAsync(string to, string message) => _sender.SendAsync(to, message);
+        public int SendAsync(string to, string message) => _sender.SendAsync(to, message);
     }
 }

@@ -2,18 +2,21 @@
 using notify.Models.MessageTypes;
 using System;
 
-namespace contacts.Models.DTO
+namespace notify.Notifiers
 {
-    public class Contact
+    public abstract class BaseNotifier
     {
         public Guid userId { get; set; }
         public string method { get; set; }
         public string contact { get; set; }
         public IMessageType message { get; set; }
         public string status { get; set; }
-        public void SaveToDB(NotifyContext context)
+
+        NotifyContext _context;
+        public BaseNotifier(NotifyContext context) => _context = context;
+        public void SaveToDB()
         {
-            context.Communication.Add(new Communication()
+            _context.Communication.Add(new Communication()
             {
                 user = userId,
                 method = method,

@@ -2,7 +2,7 @@
 {
     public enum Protocol
     {
-        SMTP, 
+        SMTP,
         IMAP
     }
 }

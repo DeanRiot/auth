@@ -1,17 +1,12 @@
-using contacts.Models.EF;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using notify.Models.ConfigDTO;
+using notify.Models.EF;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace notify
 {
@@ -33,6 +28,12 @@ namespace notify
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "notify", Version = "v1" });
             });
+            services.AddScoped(x=>new ConfigInfo(
+                              new MailData(Environment.GetEnvironmentVariable("MAIL_LOGIN"),
+                              Environment.GetEnvironmentVariable("MAIL_PASSWORD"), 
+                              Environment.GetEnvironmentVariable("MAIL_SERVICE")),
+                              Environment.GetEnvironmentVariable("SMS_COM")));
+            
             services.AddScoped<NotifyContext>();
         }
 

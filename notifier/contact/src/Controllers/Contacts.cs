@@ -22,7 +22,7 @@ namespace contacts.Controllers
         [HttpDelete]
         public void Delete(Guid contact_id)
         {
-            foreach(BaseControllerFacade f in _controllersFacades)
+            foreach (BaseControllerFacade f in _controllersFacades)
             {
                 f.Delete(new Contact { contactId = contact_id }, GetTokenFromCookie(Request));
             }
